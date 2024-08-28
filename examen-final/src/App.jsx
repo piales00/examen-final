@@ -3,15 +3,20 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Banner from "./components/Banner";
+import Formulario from "./components/Formulario";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div className="div1">
+      <header className="encabezadoPrincipal">
         <Header />
-      </div>
+        <Banner />
+      </header>
+
+      <Formulario />
+      <Footer />
     </>
   );
 }

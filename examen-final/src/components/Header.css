@@ -3,14 +3,16 @@ body  {
     margin: 0;
   }
   
-  header {
+#header {
     display: flex;
     height: 50px;
-    background-color: #F2EFE9;
+    background: rgb(255, 255, 224);
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: 5px solid orange;
+    border-bottom: 5px solid green;
+
+    margin-bottom: 30px;
   }
   
   .logo {
@@ -29,5 +31,23 @@ body  {
     padding-right: 20px;
     text-decoration: none;
     color: black;
+    
   }
-  
+
+.fecha-container {
+  display: flex;
+  align-items: center; 
+  margin-right: 20px; 
+}
+
+
+.fecha-texto {
+  margin-left: 8px; 
+}
+
+
+nav {
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}

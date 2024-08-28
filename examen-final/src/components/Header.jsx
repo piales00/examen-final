@@ -1,51 +1,52 @@
+import React, { useEffect, useRef } from "react";
 import "./Header.css";
-import { useEffect } from "react";
+import ComponenteFecha from "./ComponenteFecha";
+import ComponenteHora from "./ComponenteHora";
+import logo from "../assets/logo.png";
 
 function Header() {
+  const botonRef = useRef(null);
+
   useEffect(() => {
-    const reloj = document.querySelector("#hora");
+    const boton = botonRef.current;
 
-    function mostrarHora() {
-      const fechaActual = new Date();
-      const hora = fechaActual.getHours();
-      const minutos = fechaActual.getMinutes();
-      const segundos = fechaActual.getSeconds();
+    const entrarMouse = () => {
+      boton.style.transform = "scale(1.5)";
+    };
 
-      const horaFormateada = `${hora.toString().padStart(2, "0")}:${minutos
-        .toString()
-        .padStart(2, "0")}:${segundos.toString().padStart(2, "0")}`;
+    const sacarMouse = () => {
+      boton.style.transform = "scale(1.0)";
+    };
 
-      if (reloj) {
-        reloj.textContent = horaFormateada;
-      }
+    if (boton) {
+      boton.addEventListener("mouseover", entrarMouse);
+      boton.addEventListener("mouseout", sacarMouse);
     }
 
-    const intervalo = setInterval(mostrarHora, 1000);
-
-    // Limpia el intervalo cuando el componente se desmonte
-    return () => clearInterval(intervalo);
+    return () => {
+      if (boton) {
+        boton.removeEventListener("mouseover", entrarMouse);
+        boton.removeEventListener("mouseout", sacarMouse);
+      }
+    };
   }, []);
 
   return (
     <header id="header">
       <div className="logo">
-        <img src="#" alt="app-logo" />
-        <h2 className="nombre-empresa">MueblesFAST</h2>
+        <img src={logo} alt="app-logo" className="imagenLogo" ref={botonRef} />
+        <h2 className="nombre-empresa">TRAVELING</h2>
       </div>
 
       <nav>
-        <a href="#" className="nav-link" id="hora">
-          Fecha:
-        </a>
-        <a href="#" className="nav-link">
-          Tienda
-        </a>
-        <a href="#" className="nav-link">
-          Servicios
-        </a>
-        <a href="#" className="nav-link">
-          Ofertas
-        </a>
+        <div className="fecha-container">
+          <span className="fecha-texto">Fecha:</span>
+          <ComponenteFecha />
+        </div>
+        <div className="fecha-container">
+          <span className="fecha-texto">Hora:</span>
+          <ComponenteHora />
+        </div>
       </nav>
     </header>
   );

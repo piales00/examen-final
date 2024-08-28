@@ -1,0 +1,48 @@
+footer {
+    display: flex;
+    height: 40px;
+    background-color: #F2EFE9;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: green;
+    background: green;
+  }
+  
+  .div__footer__texto {
+    display: flex;
+    align-items: center;
+    background-color: green;
+    background: green;
+    height: 100%;
+  }
+  
+  .nombre-empresa1 {
+
+    color: white;
+    margin-left: 50px;
+  }
+  .iconos a {
+    padding-right: 20px;
+    text-decoration: none;
+    color: black;
+
+  }
+  
+  .iconos a img {
+    width: 40px;
+
+  }
+  
+  .iconos1 {
+    height: 40%;
+    background: green;
+  }
+  
+  .iconos {
+    background: green;
+
+    margin-right: 50px;
+  }
+  
+  
